@@ -1,0 +1,19 @@
+{
+  "name": "ai-platform",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "scripts": {
+    "typecheck": "tsc -b tsconfig.json --pretty false",
+    "lint": "eslint . --no-error-on-unmatched-pattern"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@repo/config": "workspace:*",
+    "@types/node": "^22.20.1",
+    "eslint": "^10.9.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.11.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.68.0"
+  }
+}
