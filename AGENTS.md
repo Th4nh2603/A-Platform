@@ -36,14 +36,24 @@ Frontend / UI
 Backend / API
 -> docs/BACKEND.md
 
-Agent / Skill
--> docs/AGENT.md
+Agent / Sub-agent / Skill architecture
+-> docs/AGENT_ARCHITECTURE.md
+
+Agent execution / runtime
+-> docs/AGENT_RUNTIME.md
 
 MCP core / Tool Integration
 -> docs/MCP.md
 
 MCP Server / Tool Permission
 -> docs/MCP_SERVERS.md
+
+Git / GitHub / branch / commit / push / PR
+-> docs/GIT_WORKFLOW.md
+
+CI / CD / GitHub Actions
+-> docs/CI_CD.md
+-> docs/DEPLOYMENT.md
 
 Architecture
 -> docs/ARCHITECTURE.md
@@ -63,6 +73,7 @@ Architecture
 - Giữ module nhỏ, rõ responsibility và dễ test.
 - Khi task hoàn thành hoặc status thay đổi, cập nhật `TASK_REPORT.md` với đúng Task ID từ `docs/ROADMAP.md`.
 - Không đánh dấu task Completed nếu verification bắt buộc chưa pass.
+- Nếu user yêu cầu thao tác trực tiếp trên `main`, không tự tạo branch trái yêu cầu.
 
 ## Agent Foundation / Rules Tasks
 
@@ -70,7 +81,7 @@ Nếu task liên quan Agent architecture rule, Agent/Sub-agent contract, role, p
 
 ```text
 docs/ROADMAP.md
-docs/AGENT.md
+docs/AGENT_ARCHITECTURE.md
 docs/AGENT_RUNTIME.md
 ```
 
@@ -89,7 +100,7 @@ Khi chỉnh execution loop, delegation implementation, context builder, state, s
 ```text
 docs/ROADMAP.md
 docs/AGENT_RUNTIME.md
-docs/AGENT.md
+docs/AGENT_ARCHITECTURE.md
 ```
 
 ## Authentication / Login / RBAC Tasks
@@ -118,7 +129,7 @@ Agent / MCP permission:
 
 ```text
 docs/AUTH_RBAC.md
-docs/AGENT.md
+docs/AGENT_ARCHITECTURE.md
 docs/MCP.md
 ```
 
@@ -139,11 +150,20 @@ docs/WORKSPACE.md
 docs/AUTH_RBAC.md
 ```
 
-## Deployment Tasks
+## Git / GitHub Tasks
 
-Nếu task liên quan deploy, CI/CD, environment, migration rollout, queue, worker, storage hoặc release, MUST read:
+Nếu task liên quan git, commit, push, branch, merge, publish repo, pull request, PR hoặc cleanup repository, MUST read:
 
 ```text
+docs/GIT_WORKFLOW.md
+```
+
+## CI/CD / Deployment Tasks
+
+Nếu task liên quan CI, CD, GitHub Actions, deploy, environment, migration rollout, queue, worker, storage hoặc release, MUST read:
+
+```text
+docs/CI_CD.md
 docs/DEPLOYMENT.md
 ```
 
