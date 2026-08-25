@@ -816,7 +816,7 @@ Agent/MCP permission:
 
 ```text
 docs/AUTH_RBAC.md
-docs/AGENT.md
+docs/AGENT_ARCHITECTURE.md
 docs/MCP.md
 ```
 
