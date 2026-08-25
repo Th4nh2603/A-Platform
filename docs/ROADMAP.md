@@ -29,6 +29,7 @@ TASK_REPORT.md
 - Một task nên đủ nhỏ để Codex / AI Agent có thể triển khai, verify và review độc lập.
 - Không triển khai task ở phase sau nếu dependency bắt buộc ở phase trước chưa tồn tại, trừ khi task đó chỉ là documentation / contract / rule.
 - `ROADMAP.md` định nghĩa scope tương lai; `TASK_REPORT.md` định nghĩa trạng thái thực tế.
+- Nếu task có implementation spec tại `docs/tasks/`, spec đó là hướng dẫn chi tiết cho đúng Task ID và không được tự mở rộng sang task khác.
 
 ---
 
@@ -52,6 +53,13 @@ Task 12 — Shared Core Packages
 Task 13 — Environment Configuration
 Task 14 — Root Scripts
 Task 15 — Foundation Smoke Test
+```
+
+Detailed implementation spec hiện có:
+
+```text
+Task 03 — Web App Skeleton
+-> docs/tasks/TASK_03_WEB_APP.md
 ```
 
 Exit criteria:
@@ -376,10 +384,11 @@ Trước khi bắt đầu task mới:
 2. Read docs/ROADMAP.md
 3. Locate current Task ID
 4. Read TASK_REPORT.md
-5. Read domain docs required by that task
-6. Implement only the requested task scope
-7. Run required verification
-8. Update TASK_REPORT.md only when task status actually changes
+5. Read docs/tasks/<TASK_SPEC>.md nếu Task ID có detailed spec
+6. Read domain docs required by that task
+7. Implement only the requested task scope
+8. Run required verification
+9. Update TASK_REPORT.md only when task status actually changes
 ```
 
 Không tự động triển khai task kế tiếp nếu user chỉ yêu cầu một task.
