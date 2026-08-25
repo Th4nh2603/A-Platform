@@ -1,23 +1,57 @@
 # AI Platform Task Report
 
-Last updated: 2026-08-25 14:06:19 +07:00
+Last updated: 2026-08-25 16:00:00 +07:00
 
-This file tracks implementation progress by task. It is a status report only;
-it does not define architecture, product scope, or future implementation tasks.
+This file tracks **actual implementation progress** by task.
+It does not define architecture or future implementation scope.
+
+Roadmap source of truth:
+
+```text
+docs/ROADMAP.md
+```
+
+## Roadmap Snapshot
+
+```text
+Total baseline tasks: 102
+Completed tasks: 2
+Overall progress: 2 / 102
+Current phase: Phase 1 — Foundation
+Current task: Task 03 — Web App Skeleton
+Next major rule phase: Phase 2 — Agent Foundation / Rules
+Sub-agent contract: Task 17
+Sub-agent runtime implementation: Task 58
+```
+
+## Phase Alignment
+
+| Phase | Task Range | Completed | Current State |
+| --- | --- | ---: | --- |
+| Phase 1 — Foundation | 01–15 | 2 / 15 | In progress |
+| Phase 2 — Agent Foundation / Rules | 16–27 | 0 / 12 | Not started |
+| Phase 3 — Data / Auth / Workspace | 28–37 | 0 / 10 | Not started |
+| Phase 4 — Chat / Files / Knowledge | 38–49 | 0 / 12 | Not started |
+| Phase 5 — Agent Runtime | 50–65 | 0 / 16 | Not started |
+| Phase 6 — Skills / MCP | 66–78 | 0 / 13 | Not started |
+| Phase 7 — Product / Admin / Operations | 79–88 | 0 / 10 | Not started |
+| Phase 8 — Production Readiness | 89–102 | 0 / 14 | Not started |
 
 ## Current Repository Notes
 
 - Root `README.md` is missing. The available project overview is `docs/README.md`.
 - GitHub remote target: `https://github.com/Th4nh2603/A-Platform.git`
-- Existing `docs/` files were not changed during Task 01 or Task 02.
+- `docs/ROADMAP.md` defines future task scope and task ordering.
+- This file must only report implementation status and verification results.
+- Existing domain docs were not changed during Task 01 or Task 02.
 
 ## Task Progress
 
 | Task | Status | Scope Completed | Verification |
 | --- | --- | --- | --- |
-| Task 01 - Initialize Monorepo Foundation | Completed | Root pnpm workspace, root TypeScript baseline, required `apps/*` and `packages/*` directories, minimal `.gitignore` | `pnpm install` passed |
-| Task 02 - Shared TypeScript + ESLint Config | Completed | `@repo/config` package with shared TS configs, ESLint flat configs, root `typecheck` and `lint` scripts | `pnpm install`, `pnpm typecheck`, and `pnpm lint` passed |
-| Task 03 | Not started | No Task 03 work has been performed | Not applicable |
+| Task 01 — Initialize Monorepo Foundation | Completed | Root pnpm workspace, root TypeScript baseline, required `apps/*` and `packages/*` directories, minimal `.gitignore` | `pnpm install` passed |
+| Task 02 — Shared TypeScript + ESLint Config | Completed | `@repo/config` package with shared TS configs, ESLint flat configs, root `typecheck` and `lint` scripts | `pnpm install`, `pnpm typecheck`, and `pnpm lint` passed |
+| Task 03 — Web App Skeleton | Not started | No Task 03 work has been performed | Not applicable |
 
 ## Task 01 Details
 
@@ -111,3 +145,14 @@ Git checks:
 
 - Before GitHub publish, this directory was not a Git repository.
 - GitHub publish target: `https://github.com/Th4nh2603/A-Platform.git`
+
+## Report Update Rules
+
+When a task changes status:
+
+1. Use the exact Task ID from `docs/ROADMAP.md`.
+2. Record only work that actually exists in the repository.
+3. Record the exact verification performed.
+4. Do not mark a task Completed when required verification is failing or has not been run.
+5. Do not redefine future scope here; update `docs/ROADMAP.md` if roadmap scope truly changes.
+6. Do not automatically mark future tasks complete because related documentation exists.
