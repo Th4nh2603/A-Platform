@@ -20,7 +20,7 @@ Backend / API
 -> docs/BACKEND.md
 
 Agent / Skill
--> docs/AGENT.md
+-> docs/AGENT_ARCHITECTURE.md
 
 MCP core / Tool Integration
 -> docs/MCP.md
@@ -80,7 +80,7 @@ Agent / MCP permission:
 
 ```text
 docs/AUTH_RBAC.md
-docs/AGENT.md
+docs/AGENT_ARCHITECTURE.md
 docs/MCP.md
 ```
 
