@@ -30,6 +30,9 @@ MCP Server / Tool Permission
 
 Architecture
 -> docs/ARCHITECTURE.md
+
+Git / GitHub / Commit / Push / PR
+-> docs/GIT_WORKFLOW.md
 ```
 
 ## General Rules
@@ -44,7 +47,6 @@ Architecture
 - Skill, Tool và MCP là các khái niệm khác nhau.
 - Thay đổi shared package phải đánh giá ảnh hưởng tới các app sử dụng package đó.
 - Giữ module nhỏ, rõ responsibility và dễ test.
-
 
 ## Agent Runtime Tasks
 
@@ -158,3 +160,29 @@ Security-sensitive changes:
 ```text
 docs/SECURITY.md
 ```
+
+## Git / GitHub Tasks
+
+Nếu task liên quan:
+
+```text
+git
+GitHub
+commit
+push
+publish
+upload repo
+upload repository
+branch
+merge
+pull request
+PR
+```
+
+MUST read:
+
+```text
+docs/GIT_WORKFLOW.md
+```
+
+Trước commit/push phải inspect status và diff, stage đúng path thuộc task, không dùng `git add .`, `git add -A` hoặc `git add --all`, không push secret, và không force push nếu user không yêu cầu rõ ràng.
