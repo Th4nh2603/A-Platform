@@ -7,11 +7,12 @@ Tài liệu này là rule chung cho AI Agent / Codex khi làm việc trong repos
 1. Đọc `README.md` nếu tồn tại; nếu root `README.md` chưa có, dùng `docs/README.md` làm project overview.
 2. Đọc `docs/ROADMAP.md` và xác định Task ID nếu công việc thuộc roadmap.
 3. Đọc `TASK_REPORT.md` để biết trạng thái triển khai thực tế.
-4. Xác định domain của task.
-5. Đọc file tương ứng trong `docs/`.
-6. Chỉ chỉnh file cần thiết cho task.
-7. Không refactor ngoài phạm vi nếu không có lý do trực tiếp.
-8. Không tự động triển khai task kế tiếp nếu user chỉ yêu cầu một task.
+4. Nếu Task ID có detailed spec trong `docs/tasks/`, MUST đọc spec đó trước khi implement.
+5. Xác định domain của task.
+6. Đọc file tương ứng trong `docs/`.
+7. Chỉ chỉnh file cần thiết cho task.
+8. Không refactor ngoài phạm vi nếu không có lý do trực tiếp.
+9. Không tự động triển khai task kế tiếp nếu user chỉ yêu cầu một task.
 
 ## Project Planning / Progress Routing
 
@@ -19,13 +20,20 @@ Tài liệu này là rule chung cho AI Agent / Codex khi làm việc trong repos
 Roadmap / Phase / Future Task / Task ID / Implementation Order
 -> docs/ROADMAP.md
 
+Detailed Task Implementation Spec
+-> docs/tasks/
+
 Current Progress / Completed Task / Verification / Current Task
 -> TASK_REPORT.md
 ```
 
 `docs/ROADMAP.md` là source of truth cho future scope và thứ tự task.
 
+`docs/tasks/` chứa hướng dẫn implementation chi tiết cho các Task ID đã có spec.
+
 `TASK_REPORT.md` chỉ phản ánh implementation status thực tế.
+
+Task spec không được tự mở rộng scope ngoài Task ID trong `docs/ROADMAP.md`.
 
 ## Documentation Routing
 
