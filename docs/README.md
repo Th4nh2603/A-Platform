@@ -146,7 +146,8 @@ ai-platform/
 |   +-- ARCHITECTURE.md
 |   +-- FRONTEND.md
 |   +-- BACKEND.md
-|   +-- AGENT.md
+|   +-- AGENT_ARCHITECTURE.md
+|   +-- AGENT_RUNTIME.md
 |   +-- MCP.md
 |
 +-- AGENTS.md
@@ -320,7 +321,8 @@ Chi tiết kiến trúc được tách thành các file:
 - `docs/ARCHITECTURE.md` — kiến trúc tổng thể và boundary
 - `docs/FRONTEND.md` — UI, design system và cấu trúc 4 client app
 - `docs/BACKEND.md` — backend API, runtime và infrastructure
-- `docs/AGENT.md` — Agent, Sub-agent, Skill, Tool, Memory và orchestration
+- `docs/AGENT_ARCHITECTURE.md` — Agent, Sub-agent, Skill, Tool, Memory và orchestration
+- `docs/AGENT_RUNTIME.md` — execution lifecycle và runtime engine của Agent
 - `docs/MCP.md` — MCP Manager, Gateway, permission và integrations
 - `docs/MCP_SERVERS.md` — quy chuẩn khai báo MCP Server, tool, risk và permission
 
@@ -359,7 +361,13 @@ Task Backend
 Task Agent / Skill
 -> README.md
 -> AGENTS.md
--> docs/AGENT.md
+-> docs/AGENT_ARCHITECTURE.md
+
+Task Agent Runtime
+-> README.md
+-> AGENTS.md
+-> docs/AGENT_ARCHITECTURE.md
+-> docs/AGENT_RUNTIME.md
 
 Task MCP core / Gateway
 -> README.md
@@ -377,7 +385,6 @@ Task thay đổi kiến trúc
 -> AGENTS.md
 -> docs/ARCHITECTURE.md
 ```
-
 
 ## Agent Runtime
 
