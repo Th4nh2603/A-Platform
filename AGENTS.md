@@ -103,9 +103,16 @@ docs/AUTH_RBAC.md
 
 ## Deployment Tasks
 
-Nếu task liên quan deploy, CI/CD, environment, migration rollout, queue, worker, storage hoặc release, MUST read:
+Nếu task liên quan deploy, environment, migration rollout, queue, worker, storage hoặc release, MUST read:
 
 ```text
+docs/DEPLOYMENT.md
+```
+
+Nếu task liên quan CI, CD, GitHub Actions, status checks, workflow, staging pipeline hoặc production pipeline, MUST read:
+
+```text
+docs/CI_CD.md
 docs/DEPLOYMENT.md
 ```
 
