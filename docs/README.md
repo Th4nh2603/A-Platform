@@ -111,31 +111,22 @@ Workspace
 ai-platform/
 |
 +-- apps/
-|   |
 |   +-- web/
-|   |
 |   +-- admin/
-|   |
 |   +-- desktop/
-|   |
 |   +-- mobile/
-|   |
 |   +-- api/
 |
 +-- packages/
-|   |
 |   +-- design-tokens/
 |   +-- theme/
 |   +-- icons/
-|   |
 |   +-- ui-web/
 |   +-- ui-native/
-|   |
 |   +-- app-core/
 |   +-- api-client/
 |   +-- auth/
 |   +-- shared/
-|   |
 |   +-- agent-core/
 |   +-- skill-core/
 |   +-- mcp-core/
@@ -143,14 +134,20 @@ ai-platform/
 +-- skills/
 |
 +-- docs/
+|   +-- ROADMAP.md
 |   +-- ARCHITECTURE.md
 |   +-- FRONTEND.md
 |   +-- BACKEND.md
-|   +-- AGENT.md
+|   +-- AGENT_ARCHITECTURE.md
+|   +-- AGENT_RUNTIME.md
 |   +-- MCP.md
+|   +-- MCP_SERVERS.md
+|   +-- GIT_WORKFLOW.md
+|   +-- CI_CD.md
+|   +-- DEPLOYMENT.md
 |
 +-- AGENTS.md
-+-- README.md
++-- TASK_REPORT.md
 +-- package.json
 +-- pnpm-workspace.yaml
 ```
@@ -238,17 +235,6 @@ Không tạo 4 design system riêng.
     Web  Admin  Desktop          Mobile
 ```
 
-Mục tiêu:
-
-- cùng colors
-- cùng typography
-- cùng spacing
-- cùng radius
-- cùng icon
-- cùng branding
-- cùng component contract
-- UX phù hợp từng platform
-
 Mobile không phải Web thu nhỏ.
 
 ---
@@ -258,8 +244,6 @@ Mobile không phải Web thu nhỏ.
 ```text
 Agent != Skill != Tool != MCP
 ```
-
-Hiểu đơn giản:
 
 ```text
 Agent
@@ -278,9 +262,19 @@ MCP
 = chuẩn kết nối Tool / Data / External Service
 ```
 
-Sub-agent không có module riêng.
-
 Sub-agent vẫn là Agent.
+
+Kiến trúc Agent xem:
+
+```text
+docs/AGENT_ARCHITECTURE.md
+```
+
+Execution runtime xem:
+
+```text
+docs/AGENT_RUNTIME.md
+```
 
 ---
 
@@ -304,25 +298,26 @@ MCP Client
 MCP Server
 ```
 
-MCP không thay thế:
-
-- Agent Runtime
-- Skill Engine
-- LLM Router
-- internal Agent orchestration
+MCP không thay thế Agent Runtime, Skill Engine, LLM Router hoặc internal Agent orchestration.
 
 ---
 
 ## 9. Documentation
 
-Chi tiết kiến trúc được tách thành các file:
+Tài liệu chính:
 
+- `docs/ROADMAP.md` — source of truth cho future scope, phase và Task ID
+- `TASK_REPORT.md` — trạng thái implementation thực tế
 - `docs/ARCHITECTURE.md` — kiến trúc tổng thể và boundary
-- `docs/FRONTEND.md` — UI, design system và cấu trúc 4 client app
+- `docs/FRONTEND.md` — UI, design system và cấu trúc client app
 - `docs/BACKEND.md` — backend API, runtime và infrastructure
-- `docs/AGENT.md` — Agent, Sub-agent, Skill, Tool, Memory và orchestration
+- `docs/AGENT_ARCHITECTURE.md` — Agent, Sub-agent, Skill, Tool, Memory và orchestration
+- `docs/AGENT_RUNTIME.md` — execution lifecycle và runtime engine
 - `docs/MCP.md` — MCP Manager, Gateway, permission và integrations
-- `docs/MCP_SERVERS.md` — quy chuẩn khai báo MCP Server, tool, risk và permission
+- `docs/MCP_SERVERS.md` — MCP Server, tool, risk và permission
+- `docs/GIT_WORKFLOW.md` — Git/GitHub workflow
+- `docs/CI_CD.md` — CI/CD policy
+- `docs/DEPLOYMENT.md` — deployment architecture
 
 ---
 
@@ -331,15 +326,15 @@ Chi tiết kiến trúc được tách thành các file:
 Trước khi chỉnh sửa code:
 
 1. Đọc `AGENTS.md`.
-2. Đọc tài liệu domain liên quan trong `docs/`.
-3. Xác định đúng app / package cần sửa.
-4. Không chỉnh code ngoài phạm vi task nếu không cần thiết.
-5. Không duplicate business logic nếu có thể share.
-6. Không duplicate UI component nếu shared component đã tồn tại.
-7. Không hard-code design value nếu token đã tồn tại.
-8. Không để frontend gọi trực tiếp MCP hoặc giữ LLM API key.
-9. Các thao tác nguy hiểm phải đi qua permission / approval.
-10. Khi thay đổi shared package phải kiểm tra ảnh hưởng tới các app liên quan.
+2. Đọc `docs/ROADMAP.md` nếu task thuộc roadmap.
+3. Đọc `TASK_REPORT.md` để biết implementation status.
+4. Đọc tài liệu domain liên quan trong `docs/`.
+5. Xác định đúng app/package cần sửa.
+6. Không chỉnh ngoài phạm vi task nếu không cần thiết.
+7. Không duplicate business logic hoặc UI component nếu đã có shared implementation.
+8. Không hard-code design value nếu token đã tồn tại.
+9. Không để frontend gọi trực tiếp MCP hoặc giữ LLM API key.
+10. Các thao tác nguy hiểm phải đi qua permission / approval.
 
 ---
 
@@ -347,44 +342,38 @@ Trước khi chỉnh sửa code:
 
 ```text
 Task UI / Frontend
--> README.md
 -> AGENTS.md
+-> docs/ROADMAP.md
 -> docs/FRONTEND.md
 
 Task Backend
--> README.md
 -> AGENTS.md
+-> docs/ROADMAP.md
 -> docs/BACKEND.md
 
-Task Agent / Skill
--> README.md
+Task Agent / Sub-agent / Skill
 -> AGENTS.md
--> docs/AGENT.md
+-> docs/ROADMAP.md
+-> docs/AGENT_ARCHITECTURE.md
+-> docs/AGENT_RUNTIME.md khi liên quan execution
 
-Task MCP core / Gateway
--> README.md
--> AGENTS.md
--> docs/MCP.md
-
-Task thêm hoặc chỉnh MCP Server
--> README.md
+Task MCP
 -> AGENTS.md
 -> docs/MCP.md
 -> docs/MCP_SERVERS.md
 
+Task Git / GitHub
+-> AGENTS.md
+-> docs/GIT_WORKFLOW.md
+
+Task CI/CD / Deploy
+-> AGENTS.md
+-> docs/CI_CD.md
+-> docs/DEPLOYMENT.md
+
 Task thay đổi kiến trúc
--> README.md
 -> AGENTS.md
 -> docs/ARCHITECTURE.md
-```
-
-
-## Agent Runtime
-
-Chi tiết execution engine:
-
-```text
-docs/AGENT_RUNTIME.md
 ```
 
 ## Authentication & RBAC
@@ -401,18 +390,6 @@ Chứa Login, Clerk, Session, Workspace Role, Super Admin và Desktop OAuth/PKCE
 docs/DATA_MODEL.md
 docs/WORKSPACE.md
 ```
-
-`DATA_MODEL.md` là source of truth cho entity/schema chính.
-
-`WORKSPACE.md` mô tả multi-workspace, ownership, member, invitation và tenant isolation.
-
-## Deployment
-
-```text
-docs/DEPLOYMENT.md
-```
-
-Mô tả environments, Web/API deployment, migrations, queue, storage, Desktop/Mobile release và CI/CD.
 
 ## Foundation Docs
 
